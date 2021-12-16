@@ -27,7 +27,6 @@ public class FavouritesStepDefintions {
     List<FavouritesField> favImages;
 
     //private String endpoint="https://api.thedogapi.com/v1/";
-    ResponseConsequence ResCon;
     @Given("x-api-key is already acquired.")
     public void x_api_key_is_already_acquired() {
         //x_api_key ="8adf71fc-c27b-40ef-8662-19ab891129e3";
@@ -59,7 +58,7 @@ public class FavouritesStepDefintions {
     @Then("Tester cast {} vote")
     public void testerCastOneVote(String arg0) {
         String bodys=("{\"image_id\": \"%s\",\"sub_id\": \"my-user-1234\",\"value\": 1\n}");
-        bodys=String.format(bodys,arg0); //: 1\n
+        bodys=String.format(bodys,arg0); 
         String finalBodys = bodys;
 
         actor.attemptsTo(Post.to("votes").with(req->req.header("Content-Type", "application/json").header("x-api-key",x_api_key)
